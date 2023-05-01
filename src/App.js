@@ -1,195 +1,195 @@
-import data from './data.js';
+import data from './data';
 
 export default class App {
-	constructor($app) {
-		this.$app = $app;
-		this.lang = window.localStorage.getItem('ui_lang') || 'lang1';
-		this.data = data;
-		this.dataObj = {};
-		this.systemsButton = [17, 999, 18, 91, 93];
-		this.shiftOn = false;
-		this.capsLockOn = false;
+  constructor($app) {
+    this.$app = $app;
+    this.lang = window.localStorage.getItem('ui_lang') || 'lang1';
+    this.data = data;
+    this.dataObj = {};
+    this.systemsButton = [17, 999, 18, 91, 93];
+    this.shiftOn = false;
+    this.capsLockOn = false;
 
-		this.init();
-	}
+    this.addAppElement = (elem = 'div', className = [], options = {}, text = '') => {
+      const $elem = document.createElement(elem);
+      className.forEach((item) => $elem.classList.add(item));
 
-	init() {
-		this.$app.append(this.createTextarea());
-		this.$app.append(this.createKeyboard());
-		this.$app.append(this.createNote());
-	}
+      Object.keys(options).forEach((item) => {
+        $elem.setAttribute(item, options[item]);
+      });
 
-	changeLang() {
-		this.lang = this.lang === 'lang1' ? 'lang2' : 'lang1'
-		window.localStorage.setItem('ui_lang', this.lang);
-		document.dispatchEvent(new Event('changeLang'))
-	}
+      if (text) $elem.innerText = text;
 
-	createTextarea () {
-		this.$textarea = this.createElement('textarea', ['app__textarea'], {cols: 30, rows: 10});
-		const $textareaBox = this.createElement('div', ['app__textarea-wrapper']);
+      return $elem;
+    };
 
-		$textareaBox.append(this.$textarea);
+    this.init();
+  }
 
-		return $textareaBox;
-	}
+  init() {
+    this.$app.append(this.createTextarea());
+    this.$app.append(this.createKeyboard());
+    this.$app.append(this.createNote());
+  }
 
-	createKeyboard() {
-		const $keyboardBox = this.createElement('div', ['app__keyboard']);
+  changeLang() {
+    this.lang = this.lang === 'lang1' ? 'lang2' : 'lang1';
+    window.localStorage.setItem('ui_lang', this.lang);
+    document.dispatchEvent(new Event('changeLang'));
+  }
 
-		this.data.forEach(item => {
-			const $button = this.createButton(item);
-			$keyboardBox.append($button);
+  createTextarea() {
+    this.$textarea = this.addAppElement('textarea', ['app__textarea'], { cols: 30, rows: 10 });
+    const $textareaBox = this.addAppElement('div', ['app__textarea-wrapper']);
 
-			this.dataObj[item.code] = item;
+    $textareaBox.append(this.$textarea);
 
-			this.dataObj[item.code]['html'] = $button;
-		});
+    return $textareaBox;
+  }
 
-		console.log(this.dataObj);
+  createKeyboard() {
+    const $keyboardBox = this.addAppElement('div', ['app__keyboard']);
 
-		return $keyboardBox;
-	}
+    this.data.forEach((item) => {
+      const $button = this.createButton(item);
+      $keyboardBox.append($button);
 
-	createButton(data) {
-		const self = this;
-		const $button = this.createElement('button', ['app__button'], {
-			'data-id': data.id,
-			'data-code': data.code,
-			'data-which': data.which
-		});
-		let $span1, $span2;
+      this.dataObj[item.code] = item;
 
-		$span1 = this.createElement('span', [], {}, data.firstValue[self.lang]);
-		$button.append($span1);
+      this.dataObj[item.code].html = $button;
+    });
 
-		$button.addEventListener('mousedown', (e) => {
-			$button.classList.add('active');
-			if (!this.switchCapsOrShift(data.which)) {
-				this.setNewValue(data);
-			}
-		});
+    return $keyboardBox;
+  }
 
-		$button.addEventListener('mouseup', (e) => {
-			$button.classList.remove('active');
-			this.switchCapsOrShift(data.which);
-		});
+  createButton(buttonData) {
+    const self = this;
+    const $button = this.addAppElement('button', ['app__button'], {
+      'data-id': buttonData.id,
+      'data-code': buttonData.code,
+      'data-which': buttonData.which,
+    });
 
-		if (data.secondValue) {
-			$span2 = this.createElement('span', [], {}, data.secondValue[self.lang]);
-			$button.append($span2);
-		}
+    let $span2;
 
-		document.addEventListener('changeLang', function() {
-			$span1.innerText = data.firstValue[self.lang];
-			if (data.secondValue) {
-				$span2.innerText = data.secondValue[self.lang]
-			}
-		})
+    const $span1 = this.addAppElement('span', [], {}, buttonData.firstValue[self.lang]);
+    $button.append($span1);
 
-		return $button;
-	}
+    $button.addEventListener('mousedown', () => {
+      $button.classList.add('active');
+      if (!this.switchCapsOrShift(buttonData.which)) {
+        this.setNewValue(buttonData);
+      }
+    });
 
-	createNote() {
-		return this.createElement('div', ['app__note'], {}, 'Клавиатура создана в операционной системе Windows\nДля переключения языка комбинация: левыe ctrl + alt')
-	}
+    $button.addEventListener('mouseup', () => {
+      $button.classList.remove('active');
+      this.switchCapsOrShift(buttonData.which);
+    });
 
-	onKeydown(data) {
-		const buttonObj = this.dataObj[data.code];
-		buttonObj.html.classList.add('active');
+    if (buttonData.secondValue) {
+      $span2 = this.addAppElement('span', [], {}, buttonData.secondValue[self.lang]);
+      $button.append($span2);
+    }
 
-		if (data.ctrlKey && data.altKey) {
-			this.changeLang();
-		} else if (!this.switchCapsOrShift(buttonObj.which)) {
-			this.setNewValue(buttonObj)
-		}
-	}
+    document.addEventListener('changeLang', () => {
+      $span1.innerText = buttonData.firstValue[self.lang];
+      if (buttonData.secondValue) {
+        $span2.innerText = buttonData.secondValue[self.lang];
+      }
+    });
 
-	onKeyup(data) {
-		const buttonObj = this.dataObj[data.code];
-		buttonObj.html.classList.remove('active');
+    return $button;
+  }
 
-		this.switchCapsOrShift(buttonObj.which);
-	}
+  createNote() {
+    return this.addAppElement('div', ['app__note'], {}, 'Клавиатура создана в операционной системе Windows\nДля переключения языка комбинация: левыe ctrl + alt');
+  }
 
-	setNewValue(data) {
-		if (this.systemsButton.includes(data.which)) return;
-		const textValue = this.$textarea.value;
-		const cursorPosition = this.$textarea.selectionStart;
-		let leftText = textValue.slice(0, cursorPosition);
-		let rightText = textValue.slice(cursorPosition);
+  onKeydown(event) {
+    const buttonObj = this.dataObj[event.code];
+    buttonObj.html.classList.add('active');
 
-		if (data.which === 8) {
-			if (leftText === '') return;
-			this.updateTextInTtextarea(leftText.slice(0, -1) + rightText, cursorPosition - 1);
-			return;
-		}
+    if (event.ctrlKey && event.altKey) {
+      this.changeLang();
+    } else if (!this.switchCapsOrShift(buttonObj.which)) {
+      this.setNewValue(buttonObj);
+    }
+  }
 
-		if (data.which === 46) {
-			if (rightText === '') return;
-			this.updateTextInTtextarea(leftText + rightText.slice(1), cursorPosition);
-			return;
-		}
+  onKeyup(event) {
+    const buttonObj = this.dataObj[event.code];
+    buttonObj.html.classList.remove('active');
 
-		if (data.which === 9) {
-			this.updateTextInTtextarea(leftText + '    ' + rightText, cursorPosition + 4);
-			return;
-		}
+    this.switchCapsOrShift(buttonObj.which);
+  }
 
-		if (data.which === 13) {
-			this.updateTextInTtextarea(leftText + '\n' + rightText, cursorPosition + 1);
-			return;
-		}
+  setNewValue(buttonData) {
+    if (this.systemsButton.includes(buttonData.which)) return;
+    const textValue = this.$textarea.value;
+    const cursorPosition = this.$textarea.selectionStart;
+    const leftText = textValue.slice(0, cursorPosition);
+    const rightText = textValue.slice(cursorPosition);
 
-		if (data.which === 32) {
-			this.updateTextInTtextarea(leftText + ' ' + rightText, cursorPosition + 1);
-			return;
-		}
+    if (buttonData.which === 8) {
+      if (leftText === '') return;
+      this.updateTextInTtextarea(leftText.slice(0, -1) + rightText, cursorPosition - 1);
+      return;
+    }
 
-		let newSymbol;
+    if (buttonData.which === 46) {
+      if (rightText === '') return;
+      this.updateTextInTtextarea(leftText + rightText.slice(1), cursorPosition);
+      return;
+    }
 
-		if (this.shiftOn) {
-			newSymbol = data.secondValue ? data.secondValue[this.lang] : (data.firstValue[this.lang]).toUpperCase();
-		} else {
-			newSymbol = (data.firstValue[this.lang]).toLowerCase();
-		}
+    if (buttonData.which === 9) {
+      this.updateTextInTtextarea(`${leftText}    ${rightText}`, cursorPosition + 4);
+      return;
+    }
 
-		if (this.capsLockOn) {
-			newSymbol = newSymbol.toUpperCase();
-		}
+    if (buttonData.which === 13) {
+      this.updateTextInTtextarea(`${leftText}\n${rightText}`, cursorPosition + 1);
+      return;
+    }
 
-		this.updateTextInTtextarea(leftText + newSymbol + rightText, cursorPosition + 1);
-	}
+    if (buttonData.which === 32) {
+      this.updateTextInTtextarea(`${leftText} ${rightText}`, cursorPosition + 1);
+      return;
+    }
 
-	updateTextInTtextarea(text, newPosition) {
-		this.$textarea.value = text;
-		this.$textarea.focus();
-		this.$textarea.selectionStart = newPosition;
-		this.$textarea.selectionEnd = newPosition;
-	}
+    let newSymbol;
 
-	switchCapsOrShift(code) {
-		if (code === 16) {
-			this.shiftOn = !this.shiftOn;
-			return true
-		} else if (code === 20) {
-			this.capsLockOn = !this.capsLockOn;
-			return true;
-		}
+    if (this.shiftOn) {
+      newSymbol = buttonData.secondValue ? buttonData.secondValue[this.lang]
+        : (buttonData.firstValue[this.lang]).toUpperCase();
+    } else {
+      newSymbol = (buttonData.firstValue[this.lang]).toLowerCase();
+    }
 
-		return false;
-	}
+    if (this.capsLockOn) {
+      newSymbol = newSymbol.toUpperCase();
+    }
 
-	createElement(elem = 'div', className = [], options = {}, text) {
-		const $elem = document.createElement(elem);
-		className.forEach(item => $elem.classList.add(item));
+    this.updateTextInTtextarea(leftText + newSymbol + rightText, cursorPosition + 1);
+  }
 
-		Object.keys(options).forEach(item => {
-			$elem.setAttribute(item, options[item]);
-		});
+  updateTextInTtextarea(text, newPosition) {
+    this.$textarea.value = text;
+    this.$textarea.focus();
+    this.$textarea.selectionStart = newPosition;
+    this.$textarea.selectionEnd = newPosition;
+  }
 
-		if (text) $elem.innerText = text;
+  switchCapsOrShift(code) {
+    if (code === 16) {
+      this.shiftOn = !this.shiftOn;
+      return true;
+    } if (code === 20) {
+      this.capsLockOn = !this.capsLockOn;
+      return true;
+    }
 
-		return $elem;
-	}
+    return false;
+  }
 }

@@ -3,12 +3,14 @@ export default [
 		id: 1,
 		firstValue: {
 			lang1: '`',
-			lang2: '`'
+			lang2: 'Ё'
 		},
 		secondValue: {
 			lang1: '~',
-			lang2: '~'
-		}
+			lang2: ''
+		},
+		which: 192,
+		code: 'Backquote'
 	},
 	{
 		id: 2,
@@ -19,7 +21,9 @@ export default [
 		secondValue: {
 			lang1: '!',
 			lang2: '!'
-		}
+		},
+		which: 49,
+		code: 'Digit1'
 	},
 	{
 		id: 3,
@@ -30,7 +34,9 @@ export default [
 		secondValue: {
 			lang1: '@',
 			lang2: '"'
-		}
+		},
+		which: 50,
+		code: 'Digit2'
 	},
 	{
 		id: 4,
@@ -41,7 +47,9 @@ export default [
 		secondValue: {
 			lang1: '#',
 			lang2: '№'
-		}
+		},
+		which: 51,
+		code: 'Digit3'
 	},
 	{
 		id: 5,
@@ -52,7 +60,9 @@ export default [
 		secondValue: {
 			lang1: '$',
 			lang2: ';'
-		}
+		},
+		which: 52,
+		code: 'Digit4'
 	},
 	{
 		id: 6,
@@ -63,7 +73,9 @@ export default [
 		secondValue: {
 			lang1: '%',
 			lang2: '%'
-		}
+		},
+		which: 53,
+		code: 'Digit5'
 	},
 	{
 		id: 7,
@@ -74,7 +86,9 @@ export default [
 		secondValue: {
 			lang1: '^',
 			lang2: ':'
-		}
+		},
+		which: 54,
+		code: 'Digit6'
 	},
 	{
 		id: 8,
@@ -85,7 +99,9 @@ export default [
 		secondValue: {
 			lang1: '&',
 			lang2: '?'
-		}
+		},
+		which: 55,
+		code: 'Digit7'
 	},
 	{
 		id: 9,
@@ -96,7 +112,9 @@ export default [
 		secondValue: {
 			lang1: '*',
 			lang2: '*'
-		}
+		},
+		which: 56,
+		code: 'Digit8'
 	},
 	{
 		id: 10,
@@ -107,7 +125,9 @@ export default [
 		secondValue: {
 			lang1: '(',
 			lang2: '('
-		}
+		},
+		which: 57,
+		code: 'Digit9'
 	},
 	{
 		id: 11,
@@ -118,7 +138,9 @@ export default [
 		secondValue: {
 			lang1: ')',
 			lang2: ')'
-		}
+		},
+		which: 48,
+		code: 'Digit0'
 	},
 	{
 		id: 12,
@@ -129,7 +151,9 @@ export default [
 		secondValue: {
 			lang1: '_',
 			lang2: '_'
-		}
+		},
+		which: 189,
+		code: 'Minus'
 	},
 	{
 		id: 13,
@@ -140,7 +164,9 @@ export default [
 		secondValue: {
 			lang1: '+',
 			lang2: '+'
-		}
+		},
+		which: 187,
+		code: 'Equal'
 	},
 	{
 		id: 14,
@@ -148,7 +174,9 @@ export default [
 			lang1: 'Backspace',
 			lang2: 'Backspace'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 8,
+		code: 'Backspace'
 	},
 	{
 		id: 15,
@@ -156,7 +184,9 @@ export default [
 			lang1: 'Tab',
 			lang2: 'Tab'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 9,
+		code: 'Tab'
 	},
 	{
 		id: 16,
@@ -164,7 +194,9 @@ export default [
 			lang1: 'Q',
 			lang2: 'Й'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 81,
+		code: 'KeyQ'
 	},
 	{
 		id: 17,
@@ -172,7 +204,9 @@ export default [
 			lang1: 'W',
 			lang2: 'Ц'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 87,
+		code: 'KeyW'
 	},
 	{
 		id: 18,
@@ -180,7 +214,9 @@ export default [
 			lang1: 'E',
 			lang2: 'У'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 69,
+		code: 'KeyE'
 	},
 	{
 		id: 19,
@@ -188,7 +224,9 @@ export default [
 			lang1: 'R',
 			lang2: 'К'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 82,
+		code: 'KeyR'
 	},
 	{
 		id: 20,
@@ -196,7 +234,9 @@ export default [
 			lang1: 'T',
 			lang2: 'Е'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 84,
+		code: 'KeyT'
 	},
 	{
 		id: 21,
@@ -204,7 +244,9 @@ export default [
 			lang1: 'Y',
 			lang2: 'Н'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 89,
+		code: 'KeyY'
 	},
 	{
 		id: 22,
@@ -212,7 +254,9 @@ export default [
 			lang1: 'U',
 			lang2: 'Г'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 85,
+		code: 'KeyU'
 	},
 	{
 		id: 23,
@@ -220,7 +264,9 @@ export default [
 			lang1: 'I',
 			lang2: 'Ш'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 73,
+		code: 'KeyI'
 	},
 	{
 		id: 24,
@@ -228,7 +274,9 @@ export default [
 			lang1: 'O',
 			lang2: 'Щ'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 79,
+		code: 'KeyO'
 	},
 	{
 		id: 25,
@@ -236,7 +284,9 @@ export default [
 			lang1: 'P',
 			lang2: 'З'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 80,
+		code: 'KeyP'
 	},
 	{
 		id: 26,
@@ -247,7 +297,9 @@ export default [
 		secondValue: {
 			lang1: '{',
 			lang2: ''
-		}
+		},
+		which: 219,
+		code: 'BracketLeft'
 	},
 	{
 		id: 27,
@@ -258,7 +310,9 @@ export default [
 		secondValue: {
 			lang1: '}',
 			lang2: ''
-		}
+		},
+		which: 221,
+		code: 'BracketRight'
 	},
 	{
 		id: 28,
@@ -266,7 +320,9 @@ export default [
 			lang1: 'Delete',
 			lang2: 'Delete'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 46,
+		code: 'NumpadDecimal'
 	},
 	{
 		id: 29,
@@ -274,7 +330,9 @@ export default [
 			lang1: 'Caps Lock',
 			lang2: 'Caps Lock'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 20,
+		code: 'CapsLock'
 	},
 	{
 		id: 30,
@@ -282,7 +340,9 @@ export default [
 			lang1: 'A',
 			lang2: ''
 		},
-		secondValue: null
+		secondValue: null,
+		which: 65,
+		code: 'KeyA'
 	},
 	{
 		id: 31,
@@ -290,7 +350,9 @@ export default [
 			lang1: 'S',
 			lang2: 'Ы'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 83,
+		code: 'KeyS'
 	},
 	{
 		id: 32,
@@ -298,7 +360,9 @@ export default [
 			lang1: 'D',
 			lang2: 'В'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 68,
+		code: 'KeyD'
 	},
 	{
 		id: 33,
@@ -306,7 +370,9 @@ export default [
 			lang1: 'F',
 			lang2: 'А'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 70,
+		code: 'KeyF'
 	},
 	{
 		id: 34,
@@ -314,7 +380,9 @@ export default [
 			lang1: 'G',
 			lang2: 'П'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 71,
+		code: 'KeyG'
 	},
 	{
 		id: 35,
@@ -322,7 +390,9 @@ export default [
 			lang1: 'H',
 			lang2: 'Р'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 72,
+		code: 'KeyH'
 	},
 	{
 		id: 36,
@@ -330,7 +400,9 @@ export default [
 			lang1: 'J',
 			lang2: 'О'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 74,
+		code: 'KeyJ'
 	},
 	{
 		id: 37,
@@ -338,7 +410,9 @@ export default [
 			lang1: 'K',
 			lang2: 'Л'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 75,
+		code: 'KeyK'
 	},
 	{
 		id: 38,
@@ -346,7 +420,9 @@ export default [
 			lang1: 'L',
 			lang2: 'Д'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 76,
+		code: 'KeyL'
 	},
 	{
 		id: 39,
@@ -357,7 +433,9 @@ export default [
 		secondValue: {
 			lang1: ':',
 			lang2: ''
-		}
+		},
+		which: 186,
+		code: 'Semicolon'
 	},
 	{
 		id: 40,
@@ -368,7 +446,9 @@ export default [
 		secondValue: {
 			lang1: '"',
 			lang2: ''
-		}
+		},
+		which: 222,
+		code: 'Quote'
 	},
 	{
 		id: 41,
@@ -379,7 +459,9 @@ export default [
 		secondValue: {
 			lang1: '|',
 			lang2: '/'
-		}
+		},
+		which: 220,
+		code: 'Backslash'
 	},
 	{
 		id: 42,
@@ -387,7 +469,9 @@ export default [
 			lang1: 'Enter',
 			lang2: 'Enter'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 13,
+		code: 'Enter'
 	},
 	{
 		id: 43,
@@ -395,7 +479,9 @@ export default [
 			lang1: 'Shift',
 			lang2: 'Shift'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 16,
+		code: 'ShiftLeft'
 	},
 	{
 		id: 44,
@@ -403,7 +489,9 @@ export default [
 			lang1: 'Z',
 			lang2: 'Я'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 90,
+		code: 'KeyZ'
 	},
 	{
 		id: 45,
@@ -411,7 +499,9 @@ export default [
 			lang1: 'X',
 			lang2: 'Ч'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 88,
+		code: 'KeyX'
 	},
 	{
 		id: 46,
@@ -419,7 +509,9 @@ export default [
 			lang1: 'C',
 			lang2: 'С'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 67,
+		code: 'KeyC'
 	},
 	{
 		id: 47,
@@ -427,7 +519,9 @@ export default [
 			lang1: 'V',
 			lang2: 'М'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 86,
+		code: 'KeyV'
 	},
 	{
 		id: 48,
@@ -435,7 +529,9 @@ export default [
 			lang1: 'B',
 			lang2: 'И'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 66,
+		code: 'KeyB'
 	},
 	{
 		id: 49,
@@ -443,7 +539,9 @@ export default [
 			lang1: 'N',
 			lang2: 'Т'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 78,
+		code: 'KeyN'
 	},
 	{
 		id: 50,
@@ -451,7 +549,9 @@ export default [
 			lang1: 'M',
 			lang2: 'Ь'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 77,
+		code: 'KeyM'
 	},
 	{
 		id: 51,
@@ -462,7 +562,9 @@ export default [
 		secondValue: {
 			lang1: '<',
 			lang2: ''
-		}
+		},
+		which: 188,
+		code: 'Comma'
 	},
 	{
 		id: 52,
@@ -473,7 +575,9 @@ export default [
 		secondValue: {
 			lang1: '>',
 			lang2: ''
-		}
+		},
+		which: 190,
+		code: 'Period'
 	},
 	{
 		id: 53,
@@ -484,7 +588,9 @@ export default [
 		secondValue: {
 			lang1: '?',
 			lang2: ','
-		}
+		},
+		which: 191,
+		code: 'Slash'
 	},
 	{
 		id: 54,
@@ -492,7 +598,9 @@ export default [
 			lang1: 'Shift',
 			lang2: 'Shift'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 16,
+		code: 'ShiftRight'
 	},
 	{
 		id: 55,
@@ -500,7 +608,9 @@ export default [
 			lang1: '↑',
 			lang2: '↑'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 38,
+		code: 'ArrowUp'
 	},
 	{
 		id: 56,
@@ -508,7 +618,9 @@ export default [
 			lang1: 'En',
 			lang2: 'Ру'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 999,
+		code: 'switchLang'
 	},
 	{
 		id: 57,
@@ -516,7 +628,9 @@ export default [
 			lang1: 'Ctrl',
 			lang2: 'Ctrl'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 17,
+		code: 'ControlLeft'
 	},
 	{
 		id: 58,
@@ -524,7 +638,9 @@ export default [
 			lang1: 'Win',
 			lang2: 'Win'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 91,
+		code: 'MetaLeft'
 	},
 	{
 		id: 59,
@@ -532,7 +648,9 @@ export default [
 			lang1: 'Alt',
 			lang2: 'Alt'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 18,
+		code: 'AltLeft'
 	},
 	{
 		id: 60,
@@ -540,7 +658,9 @@ export default [
 			lang1: 'Space',
 			lang2: 'Пробел'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 32,
+		code: 'Space'
 	},
 	{
 		id: 61,
@@ -548,7 +668,9 @@ export default [
 			lang1: 'Alt',
 			lang2: 'Alt'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 18,
+		code: 'AltRight'
 	},
 	{
 		id: 62,
@@ -556,7 +678,9 @@ export default [
 			lang1: 'Win',
 			lang2: 'Win'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 93,
+		code: 'MetaRight'
 	},
 	{
 		id: 63,
@@ -564,7 +688,9 @@ export default [
 			lang1: '≣',
 			lang2: '≣'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 93,
+		code: 'ContextMenu'
 	},
 	{
 		id: 64,
@@ -572,7 +698,9 @@ export default [
 			lang1: 'Ctrl',
 			lang2: 'Ctrl'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 17,
+		code: 'ControlRight'
 	},
 	{
 		id: 65,
@@ -580,7 +708,9 @@ export default [
 			lang1: '←',
 			lang2: '←'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 37,
+		code: 'ArrowLeft'
 	},
 	{
 		id: 66,
@@ -588,7 +718,9 @@ export default [
 			lang1: '↓',
 			lang2: '↓'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 40,
+		code: 'ArrowDown'
 	},
 	{
 		id: 67,
@@ -596,6 +728,8 @@ export default [
 			lang1: '→',
 			lang2: '→'
 		},
-		secondValue: null
+		secondValue: null,
+		which: 39,
+		code: 'ArrowRight'
 	}
 ]

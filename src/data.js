@@ -338,7 +338,7 @@ export default [
 		id: 30,
 		firstValue: {
 			lang1: 'A',
-			lang2: ''
+			lang2: 'Ф'
 		},
 		secondValue: null,
 		which: 65,

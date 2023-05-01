@@ -135,10 +135,16 @@ body {
 .app__button:nth-child(66) { top  : 232px; left : 966px; }
 .app__button:nth-child(67) { top  : 232px; left : 1039px; }
 
+.app__button:hover {
+	transform  : translateY(-1px);
+	box-shadow    : 2px 2px 0 3px rgba(81, 81, 81, 0.7);
+	background : #646464;
+}
 
 .app__button:active, .app__button.active {
 	box-shadow : none;
 	transform  : translateY(2px);
+	background : #3f2c2c;
 }
 
 .app__button span:nth-child(2) {

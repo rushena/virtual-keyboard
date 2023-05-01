@@ -1,23 +1,24 @@
-import data from './data.js';
+import App from './App.js';
 
-console.log('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO28X2C9L7GNMkji7PZ-wsRA2Bk9pwyHwRtIqJiqDzjA&s')
+const $box = document.createElement('div');
+$box.classList.add('app');
 
-const $letterBox = document.querySelector('.app__keyboard');
+const app = new App($box);
 
-data.forEach(item => {
-	const $button = document.createElement('button');
-	$button.classList.add('app__button');
-	$button.dataset.id = item.id
-	const $span1 = document.createElement('span');
-	$span1.innerText = item.firstValue.lang1;
-	$button.append($span1);
+document.body.append($box);
 
-	if (item.secondValue) {
-		const $span2 = document.createElement('span');
-		$span2.innerText = item.secondValue.lang1;
-		$button.append($span2);
-	}
-
-	$letterBox.append($button);
-
+document.addEventListener('keydown', (e) => {
+	e.preventDefault();
+	app.onKeydown(e);
 });
+
+document.addEventListener('keyup', (e) => {
+	e.preventDefault();
+	app.onKeyup(e);
+});
+
+document.querySelector('[data-code="switchLang"]').addEventListener('click', function() {
+	app.changeLang();
+})
+
+// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO28X2C9L7GNMkji7PZ-wsRA2Bk9pwyHwRtIqJiqDzjA&s - раскладка клавиатуры, которая была взята за основу

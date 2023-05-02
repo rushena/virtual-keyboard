@@ -322,7 +322,7 @@ export default [
     },
     secondValue: null,
     which: 46,
-    code: 'NumpadDecimal',
+    code: 'Delete',
   },
   {
     id: 29,
